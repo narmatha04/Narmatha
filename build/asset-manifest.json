@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Narmatha_Jayasankar/static/css/main.2d3ab733.css",
+    "main.js": "/Narmatha_Jayasankar/static/js/main.12878a04.js",
+    "static/js/453.32bc6663.chunk.js": "/Narmatha_Jayasankar/static/js/453.32bc6663.chunk.js",
+    "index.html": "/Narmatha_Jayasankar/index.html",
+    "main.2d3ab733.css.map": "/Narmatha_Jayasankar/static/css/main.2d3ab733.css.map",
+    "main.12878a04.js.map": "/Narmatha_Jayasankar/static/js/main.12878a04.js.map",
+    "453.32bc6663.chunk.js.map": "/Narmatha_Jayasankar/static/js/453.32bc6663.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d3ab733.css",
+    "static/js/main.12878a04.js"
+  ]
+}

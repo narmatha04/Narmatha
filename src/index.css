@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+body {
+    scroll-behavior: smooth;
+}
+
+/* For animated background canvas */
+#bg-canvas::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: radial-gradient(circle at 40% 30%, #6366f1 0%, #5ee7df 40%, #312e81 100%);
+  opacity: 0.5;
+}
+
+
+
+/* Glassmorphism effect for cards */
+.section-card {
+  background: rgba(31, 41, 55, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+/* Glowing border effect on hover for competencies */
+.glow-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.glow-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4), 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+/* 3D Carousel Styling */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.carousel-slide {
+  backface-visibility: hidden;
+  transition: all 0.6s cubic-bezier(.19,1,.22,1);
+  opacity: 0.6;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.carousel-slide.active {
+  /* Only position and highlight the active card, no scale or extra transform! */
+  transform: translateZ(0) !important;
+  opacity: 1;
+  z-index: 30;
+}
+
+.carousel-slide img {
+  transform: none !important; /* Disable any scale or movement on images */
+}
+
+.carousel-slide.prev {
+  transform: translateX(-50%) translateZ(-200px) rotateY(35deg);
+}
+.carousel-slide.next {
+  transform: translateX(50%) translateZ(-200px) rotateY(-35deg);
+}
+.carousel-slide.hide-left {
+  transform: translateX(-80%) translateZ(-400px) rotateY(45deg);
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.carousel-slide.hide-right {
+  transform: translateX(80%) translateZ(-400px) rotateY(-45deg);
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Remove any .carousel-slide.active img scale or .slide-content scale: */
+.carousel-slide.active img,
+.carousel-slide.active .slide-content {
+  transform: none !important;
+  opacity: 1;
+}
+
+
+
+/* Interactive Roadmap Styling */
+.roadmap-scroll-item {
+    transition-delay: 100ms;
+}
+
+.roadmap-scroll-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Stagger the animation of items */
+.roadmap-scroll-item:nth-child(odd) {
+    transform: translateX(-50px);
+}
+.roadmap-scroll-item:nth-child(even) {
+    transform: translateX(50px);
+}
+.roadmap-scroll-item:nth-child(odd).is-visible {
+     transform: translateX(0);
+}
+.roadmap-scroll-item:nth-child(even).is-visible {
+     transform: translateX(0);
+}
+
+.roadmap-scroll-item .roadmap-scroll-content {
+    transition: all 0.3s ease;
+}
+.roadmap-scroll-item:hover .roadmap-scroll-content {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Chatbot animation */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.carousel-slide {
+  backface-visibility: hidden;
+}
+.carousel-slide.active {
+  transform: translateZ(0) scale(1.1);
+  opacity: 1;
+  z-index: 20;
+}
+.carousel-slide.prev {
+  transform: translateX(-48%) translateZ(-180px) rotateY(32deg) scale(0.85);
+  opacity: 0.62;
+  z-index: 10;
+}
+.carousel-slide.next {
+  transform: translateX(48%) translateZ(-180px) rotateY(-32deg) scale(0.85);
+  opacity: 0.62;
+  z-index: 10;
+}
+.carousel-slide.hide-left {
+  transform: translateX(-110%) translateZ(-500px) rotateY(38deg) scale(0.63);
+  opacity: 0;
+  z-index: 5;
+}
+.carousel-slide.hide-right {
+  transform: translateX(110%) translateZ(-500px) rotateY(-38deg) scale(0.63);
+  opacity: 0;
+  z-index: 5;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.carousel-slide {
+  backface-visibility: hidden;
+  transition: all 0.6s cubic-bezier(.19,1,.22,1);
+}
+.carousel-slide.active {
+  transform: translate(-50%, -50%) scale(1.08) !important;
+  opacity: 1;
+  z-index: 30;
+}
+.carousel-slide.prev,
+.carousel-slide.next {
+  opacity: 0.7;
+  z-index: 20;
+}
+.carousel-slide.prev {
+  transform: translate(-120%, -50%) scale(1) rotateY(14deg) !important;
+}
+.carousel-slide.next {
+  transform: translate(20%, -50%) scale(1) rotateY(-14deg) !important;
+}
+.carousel-slide.hide-left {
+  opacity: 0.3;
+  z-index: 5;
+  pointer-events: none;
+  transform: translate(-200%, -50%) scale(0.75) rotateY(22deg) !important;
+}
+.carousel-slide.hide-right {
+  opacity: 0.3;
+  z-index: 5;
+  pointer-events: none;
+  transform: translate(100%, -50%) scale(0.75) rotateY(-22deg) !important;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+@keyframes vibrate {
+  0% { transform: translate(0);}
+  20% { transform: translate(-2px, 2px);}
+  40% { transform: translate(-2px, -2px);}
+  60% { transform: translate(2px, 2px);}
+  80% { transform: translate(2px, -2px);}
+  100% { transform: translate(0);}
+}
+.vibrate {
+  animation: vibrate 0.2s linear;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
