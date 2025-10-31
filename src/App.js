@@ -6,7 +6,8 @@ import FlippableCarousel from './FlippableCarousel';
 import FlippableRoadmapCard from "./FlippableRoadmapCard"; // Import above
 import VerticalRoadmap from "./VerticalRoadmap";
 import Contact from "./Contact";
-
+import Header from './Header';
+import FloatingCertifications from './FloatingCertification';
 
 
 
@@ -247,7 +248,7 @@ const portfolioData = {
   
   ],
   skills: {
-    "Analytics & BI": ["Looker Studio", "Power BI", "Google Analytics 4", "Google Tag Manager", "Google Ads & GMP"],
+    "Analytics & BI": ["Looker Studio", "Power BI (Certified)", "Google Analytics 4 (Certified)", "Google Tag Manager", "Google Ads & GMP"],
     "Languages & Data": ["Python Data Analysis", "SQL", "React JS", "JavaScript", "HTML/CSS"],
     "AI & Collaboration": ["AI & Prompt Engineering", "Simulation Modelling", "Jira/Confluence", "Miro", "Notion"],
     "Business Analytics": ["Predictive Analytics", "Decriptive Analytics", "Simulation Modelling", "Prescriptive Analytics","Optimisation Techniques"]
@@ -286,29 +287,29 @@ const SectionTitle = ({ children }) => (
 
 
 // --- Header ---
-const Header = () => (
-  <header className="bg-gray-900 bg-opacity-50 backdrop-filter backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-    <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-      <div className="text-white">
-        <h1 className="text-xl font-bold">{portfolioData.header.name}</h1>
-        <p className="text-sm text-gray-400">{portfolioData.header.subtitle}</p>
-      </div>
-      <div className="hidden md:flex items-center space-x-1">
-        <NavLink href="#highlights">Highlights</NavLink>
-        <NavLink href="#featured-projects">Projects</NavLink>
-        <NavLink href="#about">About me</NavLink>
-        <NavLink href="#journey">Journey</NavLink>
-        <NavLink href="#skills">Skills</NavLink>
-        <NavLink href="#contact">Contact</NavLink>
-        <a href={portfolioData.header.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white ml-4">
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd"/>
-          </svg>
-        </a>
-      </div>
-    </nav>
-  </header>
-);
+// const Header = () => (
+//   <header className="bg-gray-900 bg-opacity-50 backdrop-filter backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+//     <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+//       <div className="text-white">
+//         <h1 className="text-xl font-bold">{portfolioData.header.name}</h1>
+//         <p className="text-sm text-gray-400">{portfolioData.header.subtitle}</p>
+//       </div>
+//       <div className="hidden md:flex items-center space-x-1">
+//         <NavLink href="#highlights">Highlights</NavLink>
+//         <NavLink href="#featured-projects">Projects</NavLink>
+//         <NavLink href="#about">About me</NavLink>
+//         <NavLink href="#journey">Journey</NavLink>
+//         <NavLink href="#skills">Skills</NavLink>
+//         <NavLink href="#contact">Contact</NavLink>
+//         <a href={portfolioData.header.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white ml-4">
+//           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+//             <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd"/>
+//           </svg>
+//         </a>
+//       </div>
+//     </nav>
+//   </header>
+// );
 
 
 const Hero = () => (
@@ -535,7 +536,8 @@ function App() {
   return (
     <div className="text-gray-200 font-sans relative min-h-screen">
       <AnimatedBackground />
-      <Header />
+      <Header portfolioData={portfolioData} />
+
       <main>
         {/* Start each anchor section with enough top padding */}
        {/* Highlights */}
@@ -579,7 +581,7 @@ function App() {
 
         <Competencies />
         <VerticalRoadmap entries={portfolioData.roadmap} />
-
+        <FloatingCertifications />
         <Skills />
         <Contact />
       </main>
